@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .score{
+            display: flex;
+        }
+
+        .compete{
+            padding: 1.5em;
+        }
+
+        .selection{
+            padding: 2em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rock Paper Scissors</h1>
+        <div class="score">
+            <p id="player" class="compete">0</p>
+            <p id="computer" class="compete">0</p>
+        </div>
+        <div class="game"></div>
+        <div class="selection">
+            <p id="chose">Chose your move</p>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+    </div>
+    <script>
+        let rock = document.getElementById("rock")
+        let paper = document.getElementById("paper")
+        let scissors = document.getElementById("scissors")
+        let selection = document.querySelector(".selection")
+    </script>
+</body>
+</html>
