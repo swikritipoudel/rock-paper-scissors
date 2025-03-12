@@ -31,6 +31,15 @@
             padding: 2em;
         }
 
+        .game{
+            display: flex;
+            justify-content: space-between;
+            height: 150px;
+            width: 150px;
+            color: black;
+            font-size: 1.3em;
+        }
+
     </style>
 </head>
 <body>
@@ -40,7 +49,9 @@
             <p id="player" class="compete">0</p>
             <p id="computer" class="compete">0</p>
         </div>
-        <div class="game"></div>
+        <div class="game">
+
+        </div>
         <div class="selection">
             <p id="chose">Chose your move</p>
             <button id="rock">Rock</button>
@@ -49,10 +60,50 @@
         </div>
     </div>
     <script>
+        let option = ["Rock", "Paper", "Scissors"]
         let rock = document.getElementById("rock")
         let paper = document.getElementById("paper")
         let scissors = document.getElementById("scissors")
         let selection = document.querySelector(".selection")
+        let game = document.querySelector(".game")
+        let compscore = document.getElementById("computer")
+       
+
+        
+        selection.addEventListener("click",()=>{
+
+            let user = document.createElement("div")
+            game.appendChild(user)
+            if (event.target.id === 'rock'){
+                user.textContent = "Rock"
+            } 
+            else if (event.target.id === 'paper'){
+                user.textContent = "Paper"
+            } 
+            else if (event.target.id === 'scissors'){
+                user.textContent = "Scissors"
+            } 
+
+            let random = Math.floor(Math.random () * option.length)
+            let comchoice = option[random]
+            let computer = document.createElement("div")
+            computer.textContent = comchoice
+            game.appendChild(computer)
+            
+            rock.disabled = true
+            paper.disabled = true
+            scissors.disabled = true
+
+
+            if (user.textcontent === 'Rock'&& computer.textContent === 'paper'){
+                
+            }
+            
+        })
+
+
+
+
     </script>
 </body>
 </html>
