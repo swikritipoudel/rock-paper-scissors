@@ -40,14 +40,20 @@
             font-size: 1.3em;
         }
 
+        .score{
+            display: flex;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Rock Paper Scissors</h1>
-        <div class="score">
-            <p id="player" class="compete">0</p>
-            <p id="computer" class="compete">0</p>
+            <div class="score">
+             <div class="ply">Player</div>   
+            <div id="player" class="compete">0</div>
+            <div class="ply">Computer</div>
+            <div id="computer" class="compete">0</div>
         </div>
         <div class="game">
 
@@ -66,7 +72,10 @@
         let scissors = document.getElementById("scissors")
         let selection = document.querySelector(".selection")
         let game = document.querySelector(".game")
-        let compscore = document.getElementById("computer")
+        let player = document.getElementById("player")
+        let computer = document.getElementById("computer")
+        let compscore = 0;
+        let playscore = 0;
        
 
         
@@ -95,10 +104,35 @@
             scissors.disabled = true
 
 
-            if (user.textcontent === 'Rock'&& computer.textContent === 'paper'){
-                
+            if (user.textContent === 'Rock' && computer.textContent === 'Paper'){
+               playscore += 5
+                player.textContent = playscore
+            }
+
+            else if (user.textContent === 'Rock' && computer.textContent === 'Scissors'){
+               compscore += 5
+               computer.textContent = compscore
             }
             
+            else if (user.textContent === 'Paper' && computer.textContent === 'Rock'){
+               playscore += 5
+                player.textContent = playscore
+            }
+
+           else if (user.textContent === 'Paper' && computer.textContent === 'Scissors'){
+               compscore += 5
+               computer.textContent = compscore
+            }
+
+           else if (user.textContent === 'Scissors' && computer.textContent === 'Paper'){
+               playscore += 5
+                player.textContent = playscore
+            }
+
+           else if (user.textContent === 'Scissors' && computer.textContent === 'Rock'){
+               compscore += 5
+                computer.textContent = compscore
+            }
         })
 
 
