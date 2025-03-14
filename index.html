@@ -53,7 +53,7 @@
              <div class="ply">Player</div>   
             <div id="player" class="compete">0</div>
             <div class="ply">Computer</div>
-            <div id="computer" class="compete">0</div>
+            <div id="computers" class="compete">0</div>
         </div>
         <div class="game">
 
@@ -64,6 +64,7 @@
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
         </div>
+        <div id="result"></div>
     </div>
     <script>
         let option = ["Rock", "Paper", "Scissors"]
@@ -73,13 +74,15 @@
         let selection = document.querySelector(".selection")
         let game = document.querySelector(".game")
         let player = document.getElementById("player")
-        let computer = document.getElementById("computer")
+        let computers = document.getElementById("computers")
+        let result = document.getElementById("result")
         let compscore = 0;
         let playscore = 0;
-       
-
+        let attempt = 10
         
-        selection.addEventListener("click",()=>{
+       
+    
+        selection.addEventListener("click",(event)=>{
 
             let user = document.createElement("div")
             game.appendChild(user)
@@ -106,34 +109,66 @@
 
             if (user.textContent === 'Rock' && computer.textContent === 'Paper'){
                playscore += 5
-                player.textContent = playscore
+                
             }
 
             else if (user.textContent === 'Rock' && computer.textContent === 'Scissors'){
                compscore += 5
-               computer.textContent = compscore
+               
             }
             
             else if (user.textContent === 'Paper' && computer.textContent === 'Rock'){
                playscore += 5
-                player.textContent = playscore
+                
             }
 
            else if (user.textContent === 'Paper' && computer.textContent === 'Scissors'){
                compscore += 5
-               computer.textContent = compscore
+               
             }
 
            else if (user.textContent === 'Scissors' && computer.textContent === 'Paper'){
                playscore += 5
-                player.textContent = playscore
+                
             }
 
            else if (user.textContent === 'Scissors' && computer.textContent === 'Rock'){
                compscore += 5
-                computer.textContent = compscore
+                
             }
+
+            player.textContent = playscore
+            computers.textContent = compscore
+
+            attempt--;
+
+        if (attempt > 0) {
+        setTimeout(() => {
+        rock.disabled = false;
+        paper.disabled = false;
+        scissors.disabled = false;
+        game.innerHTML = '';
+        }, 2000); 
+        }
+
+        else {
+        if(compscore > playscore){
+            result.textContent = "Sorry! you lose"
+        }
+
+        else if(playscore > compscore){
+            result.textContent = "Congratulations! you won"
+        }
+
+        else{
+            result.textContent = "It's a tie. Tough competition"
+        }
+    }
         })
+       
+        
+    
+        
 
 
 
