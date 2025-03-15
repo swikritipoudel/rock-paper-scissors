@@ -65,6 +65,7 @@
             <button id="scissors">Scissors</button>
         </div>
         <div id="result"></div>
+        <button id="restart">Restart</button>
     </div>
     <script>
         let option = ["Rock", "Paper", "Scissors"]
@@ -76,11 +77,34 @@
         let player = document.getElementById("player")
         let computers = document.getElementById("computers")
         let result = document.getElementById("result")
+        let restart = document.getElementById("restart")
         let compscore = 0;
         let playscore = 0;
-        let attempt = 10
+        let attempt = 10;
         
        
+       
+        function restartGame() {
+            playscore = 0;
+            compscore = 0;
+            player.textContent = playscore;
+            computers.textContent = compscore;
+
+            game.innerHTML = '';
+
+            result.textContent = '';
+
+            attempt = 10;
+
+         
+            rock.disabled = false;
+            paper.disabled = false;
+            scissors.disabled = false;
+        }
+
+        
+        restart.addEventListener('click', restartGame);
+
     
         selection.addEventListener("click",(event)=>{
 
@@ -156,11 +180,11 @@
             result.textContent = "Sorry! you lose"
         }
 
-        else if(playscore > compscore){
+        else if (playscore > compscore){
             result.textContent = "Congratulations! you won"
         }
 
-        else{
+        else {
             result.textContent = "It's a tie. Tough competition"
         }
     }
