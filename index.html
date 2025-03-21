@@ -24,21 +24,21 @@
             min-height: 100vh;
             align-items: center;
             justify-content: space-between;
-            
-        }
+}
+
 
         #title{
-            font-size: 3rem;
+            font-size: clamp(1.5rem, 5vw, 3rem);
         }
 
         .score{
             display: flex;
-            gap: 2em;
-            font-size: 1.2rem;
+            gap: 1.5em;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
         }
 
         #chose{
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
         }
 
         .game{
@@ -48,7 +48,7 @@
         }
 
         .button{
-            font-size: 1.5rem;
+            font-size: clamp(1.5rem, 5vw, 1.8rem);
             padding:1em 3em;
             margin: 1em 0 0 1em;
             border-radius: 15px;
@@ -59,6 +59,29 @@
         #result{
             font-size: 2rem;
         }
+
+        @media (max-width: 480px) {
+    /* body {
+    background-color: lightblue;
+    } */
+
+    #title{
+        margin-bottom: 2em;
+    }
+
+    .score{
+        margin-bottom: 2em;  
+    }
+
+    .game{
+        margin-bottom: 2em;
+    }
+
+    .button{
+        padding: 0.5em 2em;
+    }
+
+    }
 
     </style>
 </head>
@@ -77,8 +100,8 @@
             <button id="rock" class="button">Rock</button>
             <button id="paper" class="button">Paper</button>
             <button id="scissors" class="button">Scissors</button>
+            <div id="result"></div>
         </div>
-        <div id="result"></div>
         <button id="restart" class="button">Restart</button>
     </div>
     <script src="script.js"></script>
