@@ -4,78 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body{
-            padding: 1em;
-            font-family: poppins;
-            background-color: rgb(0, 0, 58);
-            color: #fff;
-        }
-
-        .container{
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: space-between;
-}
-
-
-        #title{
-            font-size: clamp(1.5rem, 5vw, 3rem);
-            margin-bottom: 2em;
-        }
-
-        .score{
-            display: flex;
-            gap: 1.5em;
-            font-size: clamp(1.3rem, 5vw, 1.8rem);
-            margin-bottom: 2em;
-        }
-
-        #chose{
-            font-size: clamp(1.3rem, 5vw, 1.8rem);
-        }
-
-        .game{
-            display: flex;
-            gap: 2em;
-            font-size: 2rem;
-            margin-bottom: 2em;
-        }
-
-        .button{
-            font-size: clamp(1.5rem, 5vw, 1.8rem);
-            padding:1em 3em;
-            margin: 1em 0 0 1em;
-            border-radius: 15px;
-            border: none;
-            cursor: pointer;
-        }
-
-        #result{
-            font-size: 2rem;
-        }
-
-        @media (max-width: 480px) {
-    /* body {
-    background-color: lightblue;
-    } */
-.button{
-        padding: 0.5em 2em;
-    }
-
-    }
-
-    
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -89,9 +18,11 @@
         <div class="game"></div>
         <div class="selection">
             <p id="chose">Chose your move</p>
+            <div class="button-container">
             <button id="rock" class="button">Rock</button>
             <button id="paper" class="button">Paper</button>
             <button id="scissors" class="button">Scissors</button>
+        </div>
             <div id="result"></div>
         </div>
         <button id="restart" class="button">Restart</button>
